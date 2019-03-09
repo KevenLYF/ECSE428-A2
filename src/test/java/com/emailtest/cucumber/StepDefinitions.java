@@ -82,51 +82,27 @@ public class StepDefinitions {
     @And("^I add Picture A to my email$")
     public void andIAddPictureA() throws AWTException, InterruptedException {
 
-//        WebElement attachmentButton = driver.findElement(By.xpath("//*[@class='a1 aaA aMZ']"));
-//        attachmentButton.click();
         waitUntilRefreshed();
 
         File image = new File("cat.jpg");
 
-//        StringSelection ss = new StringSelection(image.getAbsolutePath());
-//        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
         String path = image.getAbsolutePath();
 
-//        driver.findElement(By.xpath("//*[@class='e5 aaA aMZ']")).sendKeys(path);
         driver.findElement(By.name("Filedata")).sendKeys(path);
 
-//        Robot robot = new Robot();
-//        robot.delay(1000);
-//        robot.keyPress(KeyEvent.VK_META);
-//        robot.keyPress(KeyEvent.VK_V);
-//        robot.keyRelease(KeyEvent.VK_V);
-//        robot.keyRelease(KeyEvent.VK_META);
-//        robot.keyPress(KeyEvent.VK_ENTER);
-//        robot.keyRelease(KeyEvent.VK_ENTER);
-//        robot.delay(1000);
     }
 
     @And("^I add Picture B to my email$")
     public void andIAddPictureB() throws AWTException, InterruptedException {
-
-        WebElement attachmentButton = driver.findElement(By.xpath("//*[@class='nU']"));
-        attachmentButton.click();
         waitUntilRefreshed();
 
         File image = new File("dog.jpeg");
 
-        StringSelection ss = new StringSelection(image.getAbsolutePath());
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
-        Robot robot = new Robot();
+        String path = image.getAbsolutePath();
 
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+        driver.findElement(By.name("Filedata")).sendKeys(path);
     }
 
     @And("^I click Send$")
