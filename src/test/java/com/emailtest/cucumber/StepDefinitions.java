@@ -13,8 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -135,9 +133,7 @@ public class StepDefinitions {
     public void thenAnErrorMessageIsDisplayedSpecifyingRecipientIsNeeded() throws InterruptedException, AWTException {
 
         waitUntilRefreshed();
-        Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+        driver.findElement(By.name("ok")).click();
 
         checkSystemInInitialState();
         driver.close();
