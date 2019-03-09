@@ -21,9 +21,6 @@
             <artifactId>cucumber-java</artifactId>
             <version>4.2.4</version>
         </dependency>
-
-
     </dependencies>
-
 
 </project>

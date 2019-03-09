@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class StepDefinitions {
 
     private WebDriver driver;
-    private final String PATH_TO_CHROME_DRIVER = "/Users/KevenLiu/Downloads/chromedriver";
+    private final String PATH_TO_CHROME_DRIVER = "./chromedriver";
     private final String GMAIL_URL = "https://mail.google.com/";
     private final String USER_MAIL = "yufeitestdev@gmail.com";
     private final String USER_PASSWORD = "lyf940915";
@@ -49,9 +49,10 @@ public class StepDefinitions {
     }
 
     @When("^I click on Compose$")
-    public void whenIClickOnCompose() {
+    public void whenIClickOnCompose() throws InterruptedException {
         WebElement compose = driver.findElement(By.className("z0"));
         compose.click();
+        waitUntilRefreshed();
     }
 
     @And("^I add recipient A to my email$")
@@ -83,9 +84,10 @@ public class StepDefinitions {
         waitUntilRefreshed();
 
         File image = new File("cat.jpg");
-
+        System.out.println(image);
 
         String path = image.getAbsolutePath();
+        System.out.println(path);
 
         driver.findElement(By.name("Filedata")).sendKeys(path);
 
@@ -96,7 +98,6 @@ public class StepDefinitions {
         waitUntilRefreshed();
 
         File image = new File("dog.jpeg");
-
 
         String path = image.getAbsolutePath();
 
@@ -161,7 +162,7 @@ public class StepDefinitions {
     }
 
     private void waitUntilRefreshed() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(2);
+        TimeUnit.SECONDS.sleep(3);
 
     }
 
